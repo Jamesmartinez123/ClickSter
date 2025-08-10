@@ -76,24 +76,25 @@
   }
 </style>
 </head>
-<body>
- <div class="chrome">
-  <div class="toolbar">
-
-    <a href="profile.html" class="logo" style="text-decoration:none; color:inherit;">
-      <div class="badge">MR</div>
-      <div>
-        <h1 style="margin:0;color:#fff;">ClickSter</h1>
-        <div class="small">Social Interaction Within A Click</div>
-      </div>
-    </a>
-
-    <div class="search">
-      <input id="searchInput" placeholder="Search people, groups, posts..." />
-      <button class="glossy-btn" id="searchBtn">Go</button>
+<div class="chrome" style="display:flex;justify-content:space-between;align-items:center;padding:10px;background:#8b5e3c;border-radius:8px;">
+  
+ 
+  <a href="profile.html" class="logo" style="display:flex;align-items:center;text-decoration:none;color:inherit;">
+    <div class="badge" style="width:40px;height:40px;border-radius:8px;background:#ffb347;display:flex;align-items:center;justify-content:center;font-weight:bold;color:#fff;margin-right:10px;">
+      MR
     </div>
+    <div>
+      <h1 style="margin:0;color:#fff;">ClickSter</h1>
+      <div class="small" style="color:#f0e6d2;">Social Interaction Within A Click</div>
+    </div>
+  </a>
 
+  
+  <div class="search" style="display:flex;align-items:center;">
+    <input id="searchInput" placeholder="Search people, groups, posts..." style="padding:5px;border-radius:4px;border:1px solid #ccc;" />
+    <button class="glossy-btn" id="searchBtn" style="margin-left:5px;padding:5px 10px;border:none;border-radius:4px;background:#fff;color:#8b5e3c;cursor:pointer;">Go</button>
   </div>
+
 </div>
 
 <script>
@@ -112,8 +113,6 @@ document.getElementById('searchInput').addEventListener('keypress', (e) => {
   }
 });
 </script>
-
-
 
       <div class="buttons">
         <button class="glossy-btn">Inbox</button>
