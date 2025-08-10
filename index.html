@@ -77,8 +77,8 @@
 </style>
 </head>
 <div class="chrome" style="display:flex;justify-content:space-between;align-items:center;padding:10px;background:#8b5e3c;border-radius:8px;">
+
   
- 
   <a href="profile.html" class="logo" style="display:flex;align-items:center;text-decoration:none;color:inherit;">
     <div class="badge" style="width:40px;height:40px;border-radius:8px;background:#ffb347;display:flex;align-items:center;justify-content:center;font-weight:bold;color:#fff;margin-right:10px;">
       MR
@@ -89,15 +89,22 @@
     </div>
   </a>
 
-  
-  <div class="search" style="display:flex;align-items:center;">
+ 
+  <div class="search" style="display:flex;align-items:center;margin-left:auto;margin-right:15px;">
     <input id="searchInput" placeholder="Search people, groups, posts..." style="padding:5px;border-radius:4px;border:1px solid #ccc;" />
     <button class="glossy-btn" id="searchBtn" style="margin-left:5px;padding:5px 10px;border:none;border-radius:4px;background:#fff;color:#8b5e3c;cursor:pointer;">Go</button>
+  </div>
+
+  
+  <div class="buttons" style="display:flex;gap:5px;">
+    <button class="glossy-btn" id="inboxBtn" style="padding:5px 10px;border:none;border-radius:4px;background:#fff;color:#8b5e3c;cursor:pointer;">Inbox</button>
+    <button class="glossy-btn" id="settingsBtn" style="padding:5px 10px;border:none;border-radius:4px;background:#fff;color:#8b5e3c;cursor:pointer;">Settings</button>
   </div>
 
 </div>
 
 <script>
+
 document.getElementById('searchBtn').addEventListener('click', () => {
   const query = document.getElementById('searchInput').value.trim();
   if (query) {
@@ -112,13 +119,16 @@ document.getElementById('searchInput').addEventListener('keypress', (e) => {
     document.getElementById('searchBtn').click();
   }
 });
-</script>
 
-      <div class="buttons">
-        <button class="glossy-btn">Inbox</button>
-        <button class="glossy-btn">Settings</button>
-      </div>
-    </div>
+
+document.getElementById('inboxBtn').addEventListener('click', () => {
+  window.location.href = 'inbox.html';
+});
+
+document.getElementById('settingsBtn').addEventListener('click', () => {
+  window.location.href = 'settings.html';
+});
+</script>
 
     <div class="main">
       <div class="leftcol">
