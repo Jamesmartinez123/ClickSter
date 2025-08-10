@@ -78,18 +78,46 @@
 </head>
 <body>
   <div class="chrome">
-    <div class="toolbar">
-      <div class="logo">
-        <div class="badge">MR</div>
-        <div>
-          <h1 style="margin:0;color:#fff;">ClickSter</h1>
-          <div class="small">Social Interaction Within A Click</div>
-        </div>
+  <div class="toolbar">
+
+    <!-- Clickable Profile Logo -->
+    <a href="profile.html" class="logo" style="text-decoration:none; color:inherit;">
+      <div class="badge">MR</div>
+      <div>
+        <h1 style="margin:0;color:#fff;">ClickSter</h1>
+        <div class="small">Social Interaction Within A Click</div>
       </div>
-      <div class="search">
-        <input placeholder="Search people, groups, posts..." />
-        <button class="glossy-btn">Go</button>
-      </div>
+    </a>
+
+    <!-- Search Bar -->
+    <div class="search">
+      <input id="searchInput" placeholder="Search people, groups, posts..." />
+      <button class="glossy-btn" id="searchBtn">Go</button>
+    </div>
+
+  </div>
+</div>
+
+<script>
+  
+  document.getElementById('searchBtn').addEventListener('click', () => {
+    const query = document.getElementById('searchInput').value.trim();
+    if (query) {
+      
+      window.location.href = `search.html?q=${encodeURIComponent(query)}`;
+    } else {
+      alert("Please enter a search term.");
+    }
+  });
+
+  
+  document.getElementById('searchInput').addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') {
+      document.getElementById('searchBtn').click();
+    }
+  });
+</script>
+
 
       <div class="buttons">
         <button class="glossy-btn">Inbox</button>
