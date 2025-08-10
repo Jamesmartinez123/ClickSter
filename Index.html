@@ -1,0 +1,115 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>MyRetro — A 2000s Skeuomorphic Social Network</title>
+<style>
+  
+  @import url('https://fonts.googleapis.com/css2?family=Trebuchet+MS:wght@400;700&display=swap');
+  :root{
+    --frame:#eae3d8;
+    --panel:#fdfcf8;
+    --accent:#ff9f00;
+    --glass: rgba(255,255,255,0.85);
+    --shadow: rgba(0,0,0,0.25);
+  }
+  html,body{height:100%;}
+  body{
+    margin:0;
+    font-family: 'Trebuchet MS', Trebuchet, Arial, sans-serif;
+    background: linear-gradient(180deg,#d8c7b0 0%, #c6b29a 100%);
+    color:#222;
+    -webkit-font-smoothing:antialiased;
+  }.chrome { width: 1000px; margin: 28px auto; border-radius: 12px; background: linear-gradient(180deg,#ffffff 0%, #efe6db 50%, #d9cfc6 100%); box-shadow: 0 12px 28px var(--shadow), inset 0 2px 0 rgba(255,255,255,0.6); border: 1px solid #b99f88; overflow: hidden; }
+
+.toolbar{ display:flex; align-items:center; justify-content:space-between; padding:12px 18px; background: linear-gradient(180deg,#6b4a33 0%, #8a5d3f 50%, #6b4a33 100%); color: #fff; box-shadow: inset 0 -2px 0 rgba(0,0,0,0.15); } .logo{ display:flex;align-items:center;gap:12px; } .logo .badge{ width:44px;height:44px;border-radius:6px; background: linear-gradient(180deg,#ffd89a,#ffb24a); box-shadow: 0 2px 6px rgba(0,0,0,0.25), inset 0 2px 0 rgba(255,255,255,0.6); display:flex;align-items:center;justify-content:center;font-weight:700;color:#6a3d00; border:1px solid rgba(0,0,0,0.08); font-size:18px; } .logo h1{font-size:18px;margin:0;letter-spacing:0.6px} .toolbar .search{ display:flex;align-items:center;gap:8px;background:linear-gradient(180deg,#fff,#f0eae1); padding:6px;border-radius:8px;border:1px solid #cbb59f;box-shadow:0 3px 6px rgba(0,0,0,0.12) inset; } .toolbar input{border:none;padding:6px 8px;font-size:13px;background:transparent;outline:none;width:260px} .toolbar .buttons{display:flex;gap:8px;align-items:center} .glossy-btn{ background: linear-gradient(180deg,#ffffff,#f1f1f1); border:1px solid #bdbdbd;padding:6px 10px;border-radius:6px;box-shadow:0 3px 0 rgba(0,0,0,0.08); font-weight:700;font-size:13px;cursor:pointer }
+
+.main{display:flex;gap:18px;padding:18px} .leftcol{width:640px} .rightcol{width:300px}
+
+.post-compose{ background: linear-gradient(180deg,#fffafb,#f7f1e8); border:1px solid #d6c9ba;border-radius:8px;padding:14px;margin-bottom:14px; box-shadow: 0 6px 16px rgba(0,0,0,0.08); } .compose-title{display:flex;align-items:center;gap:10px} .avatar{width:48px;height:48px;border-radius:6px;background:linear-gradient(180deg,#cfe9ff,#8fc1ff);display:inline-block} .compose-input{ margin-top:10px;border-radius:6px;padding:10px;background:white;border:1px solid #d1c6b8;box-shadow: inset 0 2px 0 rgba(255,255,255,0.6); } .compose-actions{display:flex;justify-content:space-between;align-items:center;margin-top:8px} .post-btn{background:linear-gradient(180deg,#65b32c,#3f7f18);color:white;padding:8px 14px;border-radius:6px;font-weight:700;border:1px solid #2d5b12;cursor:pointer}
+
+.post{ margin-top:14px;padding:12px;border-radius:8px;background:linear-gradient(180deg,#fff,#f8f3ec);border:1px solid #d1c3b4;box-shadow:0 8px 18px rgba(0,0,0,0.06); } .post .meta{font-size:12px;color:#6a5847;margin-bottom:8px} .post .content{font-size:14px;color:#222}
+
+.widget{ background: linear-gradient(180deg,#fefcf9,#f3eede);border:1px solid #d0bfa8;padding:12px;border-radius:8px;margin-bottom:14px;box-shadow:0 6px 12px rgba(0,0,0,0.06) } .widget h3{margin:0 0 8px;font-size:15px} .friend-item{display:flex;align-items:center;gap:10px;padding:6px 0;border-top:1px dashed rgba(0,0,0,0.03)} .friend-item:first-of-type{border-top:none}
+
+.signup-box{ background:linear-gradient(180deg,#fffdf9,#f6efe4);border-radius:10px;padding:12px;border:1px solid #cbb398;position:relative;overflow:hidden; box-shadow: 0 8px 18px rgba(0,0,0,0.08), inset 0 2px 0 rgba(255,255,255,0.85); } .signup-box:before{content:"";position:absolute;left:8px;right:8px;bottom:8px;height:2px;background:linear-gradient(90deg,rgba(0,0,0,0.05), rgba(255,255,255,0.6));border-radius:2px} .field{display:block;margin-bottom:8px} .field input{width:100%;padding:8px;border-radius:6px;border:1px solid #c9b7a0;background:linear-gradient(180deg,#fff,#f1e7da);box-shadow:inset 0 2px 0 rgba(255,255,255,0.6)} .signup-cta{display:flex;gap:8px;align-items:center;justify-content:space-between;margin-top:8px}
+
+.ribbon{position:absolute;right:-34px;top:12px;background:linear-gradient(180deg,#ffefc8,#ffd97f);padding:6px 46px;transform:rotate(40deg);box-shadow:0 3px 6px rgba(0,0,0,0.15);font-weight:700;color:#7a4300;border:1px solid rgba(0,0,0,0.06)}
+
+.chrome-footer{padding:10px 18px;background:linear-gradient(180deg,#e9ded2,#d5c7b8);font-size:12px;color:#5b463a;border-top:1px solid rgba(0,0,0,0.05)}
+
+.sep{height:1px;background:linear-gradient(90deg,transparent,#e2d1c0,transparent);margin:12px 0} .small{font-size:12px;color:#6b5447}
+
+@media(max-width:1080px){.chrome{width:92%}.toolbar input{width:160px}.leftcol{width:58%}.rightcol{width:38%}} </style>
+
+</head>
+<body>
+  <div class="chrome">
+    <div class="toolbar">
+      <div class="logo">
+        <div class="badge">MR</div>
+        <div>
+          <h1 style="margin:0;color:#fff;">MyRetro</h1>
+          <div class="small">Bring back the shine</div>
+        </div>
+      </div><div class="search">
+    <input placeholder="Search people, groups, posts..." />
+    <button class="glossy-btn">Go</button>
+  </div>
+
+  <div class="buttons">
+    <button class="glossy-btn">Inbox</button>
+    <button class="glossy-btn">Settings</button>
+  </div>
+</div>
+
+<div class="main">
+  <div class="leftcol">
+    <div class="post-compose">
+      <div class="compose-title"><div class="avatar"></div><div><strong>What's on your mind?</strong><div class="small">Share a photo or a thought</div></div></div>
+      <div class="compose-input" contenteditable>Write something...</div>
+      <div class="compose-actions"><div class="small">Attach: <span class="small">photo • file • mood</span></div><button class="post-btn">Post</button></div>
+    </div>
+
+    <div class="post">
+      <div class="meta">Sam Jones · 2 hours ago</div>
+      <div class="content">Remember when websites had glossy buttons and big drop-shadows? Those were the days.</div>
+    </div>
+
+    <div class="post">
+      <div class="meta">Liza M · Yesterday</div>
+      <div class="content">Check out my new blog: vintagecodes.example.com</div>
+    </div>
+  </div>
+
+  <div class="rightcol">
+    <div class="widget signup-box">
+      <div class="ribbon">Free</div>
+      <h3>Create an account</h3>
+      <div class="field"><input placeholder="Full name" /></div>
+      <div class="field"><input placeholder="Email" /></div>
+      <div class="field"><input placeholder="Password" type="password"/></div>
+      <div class="signup-cta"><div class="small">By joining you agree to our vintage terms.</div><button class="post-btn">Sign Up</button></div>
+    </div>
+
+    <div class="widget">
+      <h3>Online Friends</h3>
+      <div class="friend-item"><div style="width:44px;height:44px;border-radius:6px;background:linear-gradient(180deg,#ffd3d3,#ff9f9f);"></div><div>Rafael</div></div>
+      <div class="friend-item"><div style="width:44px;height:44px;border-radius:6px;background:linear-gradient(180deg,#d3ffdb,#9fffbe);"></div><div>Priya</div></div>
+      <div class="friend-item"><div style="width:44px;height:44px;border-radius:6px;background:linear-gradient(180deg,#d3e0ff,#9fb8ff);"></div><div>Omar</div></div>
+    </div>
+
+    <div class="widget">
+      <h3>Trending</h3>
+      <div class="small">#glossybuttons</div>
+      <div class="sep"></div>
+      <div class="small">#nostalgia</div>
+    </div>
+  </div>
+</div>
+
+<div class="chrome-footer">MyRetro © 2005 — Terms · Privacy · Help</div>
+
+  </div>
+</body>
+</html>
